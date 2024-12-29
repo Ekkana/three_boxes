@@ -121,7 +121,6 @@ function animate() {
     );
   }
 
-  console.log(camera);
   renderer.render(scene, camera);
 }
 animate();
