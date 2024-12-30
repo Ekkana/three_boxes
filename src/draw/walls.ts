@@ -8,9 +8,13 @@ export const getWalls = (
 ): THREE.Group<THREE.Object3DEventMap> => {
   const walls = new THREE.Group();
 
+  const texture = new THREE.TextureLoader().load('/textures/wall.jpg');
+  texture.colorSpace = THREE.SRGBColorSpace;
+  //texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+
   const wallBoxGeometry = new THREE.BoxGeometry(1, 1, 2);
   const wallBoxMaterial = new THREE.MeshStandardMaterial({
-    color: 0xff0000,
+    map: texture,
   });
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[y].length; x++) {
